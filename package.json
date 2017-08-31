@@ -1,0 +1,73 @@
+{
+  "name": "vuestyle",
+  "version": "0.0.1",
+  "description": "Use the Styletron CSS-in-JS library with Vue.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "nsp": "nsp check",
+    "pretest": "npm run nsp && standard --env jest",
+    "test": "jest",
+    "format": "prettier-standard '**/*.js'",
+    "precommit": "lint-staged",
+    "compile": "babel src/ -d dist/ && npm run format",
+    "push-tags": "git push --follow-tags origin master",
+    "release": "npm run compile; npm test; standard-version; npm run push-tags",
+    "prepublishOnly": "npm run release"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run compile",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:optick/vuestyle.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Ian Walter",
+    "email": "public@iankwalter.com",
+    "website": "https://iankwalter.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/optick/vuestyle/issues"
+  },
+  "homepage": "https://github.com/optick/vuestyle",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "6.25.0",
+    "babel-jest": "^20.0.3",
+    "babel-preset-env": "^1.6.0",
+    "cz-conventional-changelog": "^2.0.0",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "lint-staged": "^4.0.3",
+    "nsp": "^2.7.0",
+    "prettier-standard": "^6.0.0",
+    "regenerator-runtime": "^0.10.5",
+    "standard": "^10.0.3",
+    "standard-version": "^4.2.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

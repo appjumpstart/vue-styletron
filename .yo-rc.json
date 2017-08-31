@@ -1,0 +1,13 @@
+{
+  "generator-optick-node-module": {
+    "promptValues": {
+      "user": "optick",
+      "repo": "vuestyle",
+      "description": "Use the Styletron CSS-in-JS library with Vue.js",
+      "homepage": "https://github.com/optick/vuestyle",
+      "authorName": "Ian Walter",
+      "authorEmail": "public@iankwalter.com",
+      "authorWebsite": "https://iankwalter.com"
+    }
+  }
+}
