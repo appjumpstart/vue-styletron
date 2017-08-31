@@ -69,5 +69,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "styletron": "^2.5.7",
+    "styletron-utils": "^2.5.4"
   }
 }
