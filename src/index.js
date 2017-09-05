@@ -5,10 +5,10 @@ const styletron = new Styletron()
 
 export default config => {
   return {
-    config,
     install (Vue) {
+      Vue.$style = Vue.prototype.$style = config
       Vue.directive('style', (el, { value }) => {
-        const style = typeof value === 'function' ? value(this.config) : value
+        const style = typeof value === 'function' ? value(Vue.$style) : value
         el.className += ` ${injectStyle(styletron, style)}`
       })
     }
