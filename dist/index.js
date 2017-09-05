@@ -16,11 +16,12 @@ function _interopRequireDefault (obj) {
 
 const styletron = new _styletron2.default()
 
-exports.default = theme => {
+exports.default = config => {
   return {
-    install: Vue => {
+    config,
+    install (Vue) {
       Vue.directive('style', (el, { value }) => {
-        const style = typeof value === 'function' ? value(theme) : value
+        const style = typeof value === 'function' ? value(this.config) : value
         el.className += ` ${(0, _styletronUtils.injectStyle)(styletron, style)}`
       })
     }
