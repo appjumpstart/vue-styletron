@@ -24,7 +24,7 @@ exports.default = config => {
         const style = typeof value === 'function' ? value(Vue.$style) : value
         const classes = ` ${(0, _styletronUtils.injectStyle)(styletron, style)}`
         if (el instanceof SVGElement) {
-          el.setAttribute('class', el.className + classes)
+          el.setAttribute('class', el.getAttribute('class') + classes)
         } else {
           el.className += classes
         }
