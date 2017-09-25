@@ -2,20 +2,37 @@
   "name": "vuestyle",
   "version": "0.1.2",
   "description": "Use the Styletron CSS-in-JS library with Vue.js",
-  "main": "dist/index.js",
+  "homepage": "https://github.com/optick/vuestyle",
+  "author": {
+    "name": "Ian Walter",
+    "email": "public@iankwalter.com",
+    "url": "https://iankwalter.com",
+    "website": "https://iankwalter.com"
+  },
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
+  "keywords": [],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:optick/vuestyle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/optick/vuestyle/issues"
+  },
   "scripts": {
     "nsp": "nsp check",
+    "format": "prettier-standard '**/*.js'",
+    "compile": "babel src/ -d dist/ && npm run format",
     "pretest": "npm run nsp && standard --env jest",
     "test": "jest",
-    "format": "prettier-standard '**/*.js'",
     "precommit": "lint-staged",
-    "compile": "babel src/ -d dist/ && npm run format",
-    "push-tags": "git push --follow-tags origin master",
+    "pushtags": "git push --follow-tags origin master",
     "release": "npm run compile; npm test; standard-version; npm run push-tags",
-    "prepublishOnly": "npm run release"
+    "prepublishOnly": "npm run release",
+    "push-tags": "git push --follow-tags origin master"
   },
   "lint-staged": {
     "*.js": [
@@ -23,25 +40,11 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com:optick/vuestyle.git"
-  },
-  "keywords": [],
-  "author": {
-    "name": "Ian Walter",
-    "email": "public@iankwalter.com",
-    "website": "https://iankwalter.com"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/optick/vuestyle/issues"
-  },
-  "homepage": "https://github.com/optick/vuestyle",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "6.25.0",
     "babel-jest": "^20.0.3",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-preset-env": "^1.6.0",
     "cz-conventional-changelog": "^2.0.0",
     "husky": "^0.14.3",
@@ -63,6 +66,9 @@
           }
         }
       ]
+    ],
+    "plugins": [
+      "babel-plugin-syntax-object-rest-spread"
     ]
   },
   "config": {

@@ -22,7 +22,12 @@ exports.default = config => {
       Vue.$style = Vue.prototype.$style = config
       Vue.directive('style', (el, { value }) => {
         const style = typeof value === 'function' ? value(Vue.$style) : value
-        el.className += ` ${(0, _styletronUtils.injectStyle)(styletron, style)}`
+        const classes = ` ${(0, _styletronUtils.injectStyle)(styletron, style)}`
+        if (el instanceof SVGElement) {
+          el.setAttribute('class', el.className + classes)
+        } else {
+          el.className += classes
+        }
       })
     }
   }

@@ -1,4 +1,4 @@
-FROM node:8.2.1
+FROM node:8.5
 
 # Create vuestyle directory.
 RUN mkdir /srv/vuestyle
