@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.5"></a>
+## [0.1.5](https://github.com/optick/vuestyle/compare/v0.1.4...v0.1.5) (2017-09-27)
+
+
+### Bug Fixes
+
+* **package.json:** Adding correct Babel target and getting rid of lint-staged ([3f9a37c](https://github.com/optick/vuestyle/commit/3f9a37c))
+
+
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/optick/vuestyle/compare/v0.1.3...v0.1.4) (2017-09-25)
 

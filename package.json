@@ -1,6 +1,6 @@
 {
   "name": "vuestyle",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Use the Styletron CSS-in-JS library with Vue.js",
   "homepage": "https://github.com/optick/vuestyle",
   "author": {
