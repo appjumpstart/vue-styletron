@@ -14,15 +14,17 @@ function _interopRequireDefault (obj) {
   return obj && obj.__esModule ? obj : { default: obj }
 }
 
-const styletron = new _styletron2.default()
+var styletron = new _styletron2.default()
 
-exports.default = config => {
+exports.default = function (config) {
   return {
-    install (Vue) {
+    install: function install (Vue) {
       Vue.$style = Vue.prototype.$style = config
-      Vue.directive('style', (el, { value }) => {
-        const style = typeof value === 'function' ? value(Vue.$style) : value
-        const classes = ` ${(0, _styletronUtils.injectStyle)(styletron, style)}`
+      Vue.directive('style', function (el, _ref) {
+        var value = _ref.value
+
+        var style = typeof value === 'function' ? value(Vue.$style) : value
+        var classes = ' ' + (0, _styletronUtils.injectStyle)(styletron, style)
         if (el instanceof SVGElement) {
           el.setAttribute('class', el.getAttribute('class') + classes)
         } else {
