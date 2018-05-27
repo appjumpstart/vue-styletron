@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`client generates styles and classes 1`] = `
+<head>
+  <style
+    media=""
+  />
+</head>
+`;
+
+exports[`client generates styles and classes 2`] = `
+<body>
+  <div
+    class="ae af mr-5"
+  >
+    Hello!
+  </div>
+</body>
+`;

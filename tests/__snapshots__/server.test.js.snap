@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`server generates styles and classes 1`] = `
+"<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Template</title>
+    <style class=\\"_styletron_hydrate_\\">.ae{font-size:48px}.af{text-align:center}</style>
+  <style class=\\"_styletron_hydrate_\\">.ae{font-size:48px}.af{text-align:center}</style></head>
+  <body>
+    <div data-server-rendered=\\"true\\" class=\\"ae af mr-5\\">
+  Hello!
+</div>
+  </body>
+</html>
+"
+`;
