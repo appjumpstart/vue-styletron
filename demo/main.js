@@ -1,10 +1,10 @@
 import Vue from 'vue'
 
-import { Client } from '../src'
+import VueStyletron from '../'
 import App from './App'
 
-// TODO:
-Vue.use(Client())
+// Use VueStyletron as a Vue plugin.
+Vue.use(VueStyletron)
 
 // Create and mount the application.
 const app = new Vue({ render: h => h(App) })

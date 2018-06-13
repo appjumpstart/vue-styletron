@@ -1,29 +1,22 @@
-import Vue from 'vue/dist/vue'
-import { Client } from 'styletron-engine-atomic'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 
-import HelloMessage from './fixtures/HelloMessage.vue'
 import VueStyletron from '../'
+import HelloMessage from './fixtures/HelloMessage.vue'
 
-// Create a Styletron client instance.
-const styletron = new Client()
+// Create test-utils-based local Vue instance.
+const localVue = createLocalVue()
 
-//
-Vue.use(VueStyletron, { styletron })
-
-// Create a container div that the test will mount the application to.
-const container = document.createElement('div')
-container.setAttribute('id', 'app')
-
-// Add the container div to the body.
-document.body.appendChild(container)
+// Use the VueStyletron Client plugin.
+localVue.use(VueStyletron)
 
 test('client generates styles and classes', () => {
-  // Create and mount the app with styletron as an option.
-  new Vue({ render: h => h(HelloMessage) }).$mount('#app')
+  // Create and mount the app.
+  const wrapper = shallowMount(HelloMessage, { localVue })
 
-  // The head should contain the generated styles.
+  // The head should contain a styles block.
   expect(document.head).toMatchSnapshot()
 
-  // The body should contain the rendered component with generated class names.
-  expect(document.body).toMatchSnapshot()
+  // The wrapper element should contain the rendered component with generated
+  // class names.
+  expect(wrapper.element).toMatchSnapshot()
 })

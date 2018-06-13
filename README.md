@@ -3,7 +3,7 @@
 > [Vue.js](https://github.com/vuejs/vue)
 
 [![npm page][npm-image]][npm-url]
-[![appjumpstart chat][gitter-image]][gitter-url]
+[![Join the community on Spectrum][spectrum-image]][spectrum-url]
 
 ## About
 
@@ -20,26 +20,34 @@ npm install @appjumpstart/vue-styletron --save
 ## Usage
 
 
+Client:
 
 ```js
-const { Client } = require('@appjumpstart/vue-styletron')
+import VueStyletron from '@appjumpstart/vue-styletron'
 
-Vue.use(Client())
+// Use VueStyletron as a Vue plugin.
+Vue.use(VueStyletron)
 ```
+
+Server:
 
 ```js
-const { Server } = require('@appjumpstart/vue-styletron')
+const { Server } = require('styletron-engine-atomic')
+const VueStyletron = require('@appjumpstart/vue-styletron')
 
-// Pass any Styletron options into the Server function, e.g.:
-Vue.use(Server({
-  hydrate: document.getElementsByClassName('_styletron_hydrate_') // Default
-}))
+// Create a Styletron Server instance.
+const styletron = new Server()
+
+// Use VueStyletron as a Vue plugin and tell it to use the Styletron Server
+// instance created above.
+Vue.use(VueStyletron, { styletron })
 ```
 
+Component:
 
 ```vue
 <template>
-  <div :class="hello">
+  <div :class="`${styles.hello} mr-5`">
     Hello!
   </div>
 </template>
@@ -48,7 +56,7 @@ Vue.use(Server({
 export default {
   data: () => ({
     styles: {
-      hello: { fontSize: '48px', color: 'red' }
+      hello: { fontSize: '48px', textAlign: 'center' }
     }
   })
 }
@@ -58,7 +66,19 @@ export default {
 Output:
 
 ```html
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test Template</title>
+    <style class="_styletron_hydrate_">.ae{font-size:48px}.af{text-align:center}</style>
+    <style class="_styletron_hydrate_">.ae{font-size:48px}.af{text-align:center}</style>
+  </head>
+  <body>
+    <div data-server-rendered="true" class="ae af mr-5">
+      Hello!
+    </div>
+  </body>
+</html>
 ```
 
 &nbsp;
@@ -72,5 +92,5 @@ Output:
 
 [npm-image]: https://badge.fury.io/js/@appjumpstart/vue-styletron.svg
 [npm-url]: https://npmjs.org/package/@appjumpstart/vue-styletron
-[gitter-image]: https://img.shields.io/gitter/room/appjumpstart/appjumpstart.svg
-[gitter-url]: https://gitter.im/appjumpstart
+[spectrum-image]: https://withspectrum.github.io/badge/badge.svg
+[spectrum-url]: https://spectrum.chat/appjumpstart/general
