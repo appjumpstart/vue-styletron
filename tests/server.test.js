@@ -28,7 +28,7 @@ test('server generates styles and classes', async () => {
     // necessary renderStyle calls. This wouldn't be necessary if
     // createBundleRenderer was used since it would allow the template context
     // to be dynamically generated.
-    await renderer.renderToString(app, { styles: null })
+    await renderer.renderToString(app)
 
     // Extract the stylesheet HTML from Styletron.
     const styles = styletron.getStylesheetsHtml()
