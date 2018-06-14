@@ -7,10 +7,6 @@
 <script>
 export default {
   name: 'HelloMessage',
-  data: () => ({
-    styles: {
-      hello: { fontSize: '48px', textAlign: 'center' }
-    }
-  })
+  styles: { hello: { fontSize: '48px', textAlign: 'center' } }
 }
 </script>

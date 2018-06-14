@@ -11,36 +11,31 @@ export default {
 
     // Create a function that creates a mapping from a key to a set of generated
     // style classes.
-    const renderStyles = styles => {
-      const generated = {}
-      for (const key of Object.keys(styles)) {
-        generated[key] = styletron.renderStyle(styles[key])
-      }
-      return generated
-    }
+    const reducer = styles => (acc, key) => (
+      Object.assign({}, acc, { [key]: styletron.renderStyle(styles[key]) })
+    )
+    const renderStyles = s => Object.keys(s).reduce(reducer(s), {})
 
-    // Expose a renderStyles method that can be used to render the styles for a
+    // Expose a renderStyles method that can be used to render styles for a
     // component.
-    this.renderStyles = component => {
-      const { styles } = component.data()
-      stylesMap[component.name] = renderStyles(styles)
-    }
+    this.renderStyles = c => stylesMap[c.name] = renderStyles(c.styles)
 
-    // Add a global mixin.
+    // Add a global mixin so that VueStyletron can be used in all components.
     Vue.mixin({
-      methods: {
-        // Make the renderStyle method available in components in case styles
-        // need to be generated dynamically.
-        renderStyle: style => styletron.renderStyle(style)
-      },
-      created () {
-        // If a 'styles' data object exists and hasn't been generated, replace
-        // it's contents with the rendered styles so that they can be used in
-        // the component.
-        if (!stylesMap[this.$options.name] && this.$data.styles) {
-          stylesMap[this.$options.name] = renderStyles(this.$data.styles)
+      // Make the renderStyle and renderStyles methods available in components
+      // in case styles need to be generated dynamically.
+      methods: { renderStyle: s => styletron.renderStyle(s), renderStyles },
+      // Add the generated styles to the component's data, generating them if
+      // they're not found in stylesMap.
+      data () {
+        const data = {}
+        if (this.$options.styles) {
+          if (!stylesMap[this.$options.name]) {
+            stylesMap[this.$options.name] = renderStyles(this.$options.styles)
+          }
+          data.styles = stylesMap[this.$options.name]
         }
-        this.$data.styles = stylesMap[this.$options.name]
+        return data
       }
     })
   }

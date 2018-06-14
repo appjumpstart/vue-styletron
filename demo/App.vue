@@ -51,10 +51,8 @@ const editable = updateStyles(editableRules)
 
 export default {
   components: { CodeMirror },
-  data: () => ({
-    editableRules,
-    styles: { editable, editor: { height: 'auto' } }
-  }),
+  styles: { editable, editor: { height: 'auto' } },
+  data: () => ({ editableRules }),
   mounted () {
     CodeMirror
       .fromTextArea(document.querySelector('#styles'), {
