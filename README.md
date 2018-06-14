@@ -19,8 +19,7 @@ npm install @appjumpstart/vue-styletron --save
 
 ## Usage
 
-
-Client:
+**Client:**
 
 ```js
 import VueStyletron from '@appjumpstart/vue-styletron'
@@ -29,7 +28,7 @@ import VueStyletron from '@appjumpstart/vue-styletron'
 Vue.use(VueStyletron)
 ```
 
-Server:
+**Server (optional, for SSR):**
 
 ```js
 const { Server } = require('styletron-engine-atomic')
@@ -41,9 +40,15 @@ const styletron = new Server()
 // Use VueStyletron as a Vue plugin and tell it to use the Styletron Server
 // instance created above.
 Vue.use(VueStyletron, { styletron })
+
+// ...
+
+// After components have been created, generate the <style> HTML so that you
+// can add it to the page before is sent to the client.
+const styles = styletron.getStylesheetsHtml()
 ```
 
-Component:
+**Component:**
 
 ```vue
 <template>
@@ -63,14 +68,13 @@ export default {
 </script>
 ```
 
-Output:
+**Output:**
 
 ```html
 <!DOCTYPE html>
 <html>
   <head>
     <title>Test Template</title>
-    <style class="_styletron_hydrate_">.ae{font-size:48px}.af{text-align:center}</style>
     <style class="_styletron_hydrate_">.ae{font-size:48px}.af{text-align:center}</style>
   </head>
   <body>
