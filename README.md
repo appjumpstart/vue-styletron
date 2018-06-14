@@ -41,10 +41,12 @@ const styletron = new Server()
 // instance created above.
 Vue.use(VueStyletron, { styletron })
 
-// ...
+// Once the application logic has determined the component to be rendered (by
+// VueRouter navigation or otherwise), render the component's styles.
+VueStyletron.renderStyles(MatchedComponent)
 
-// After components have been created, generate the <style> HTML so that you
-// can add it to the page before is sent to the client.
+// After component styles have been rendered, generate the <style> HTML so that
+// it can be added to the page before sent to the client.
 const styles = styletron.getStylesheetsHtml()
 ```
 

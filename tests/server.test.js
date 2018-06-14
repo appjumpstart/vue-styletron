@@ -21,14 +21,11 @@ Vue.use(VueStyletron, { styletron })
 
 test('server generates styles and classes', async () => {
   try {
+    // Render the styles for the HelloMessage component.
+    VueStyletron.renderStyles(HelloMessage)
+
     // Create and mount the app with styletron as an option.
     const app = new Vue({ render: h => h(HelloMessage) })
-
-    // Render the app so that the created hook gets called and triggers the
-    // necessary renderStyle calls. This wouldn't be necessary if
-    // createBundleRenderer was used since it would allow the template context
-    // to be dynamically generated.
-    await renderer.renderToString(app)
 
     // Extract the stylesheet HTML from Styletron.
     const styles = styletron.getStylesheetsHtml()
