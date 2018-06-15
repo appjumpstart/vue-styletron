@@ -5,7 +5,8 @@
   "homepage": "https://github.com/optick/vuestyle",
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE"
   ],
   "main": "index.js",
   "keywords": [

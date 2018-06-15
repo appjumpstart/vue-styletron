@@ -83,7 +83,7 @@ export default {
 </html>
 ```
 
-## Server Side Rendering (SSR)
+## Server-Side Rendering (SSR)
 
 **Note:** If you are using
 [webpack-node-externals](https://github.com/liady/webpack-node-externals) in the
