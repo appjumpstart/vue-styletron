@@ -60,7 +60,17 @@ export default class VueStyletron {
    * map so that they can be injected into the component's data when the
    * component is initialized.
    */
-  renderComponentStyles ({ name, styles }) {
-    this.components[name] = this.renderStyles(styles)
+  renderComponentStyles ({ name, styles, components }) {
+    if (styles) {
+      if (name) {
+        this.components[name] = this.renderStyles(styles)
+      } else {
+        const warning = `renderStyles not called for component with no name:`
+        console.warn(warning, arguments[0])
+      }
+    }
+    if (components) {
+      Object.values(components).forEach(c => this.renderComponentStyles(c))
+    }
   }
 }

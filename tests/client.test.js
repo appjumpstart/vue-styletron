@@ -1,4 +1,4 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 
 import VueStyletron from '../'
 import HelloMessage from './fixtures/HelloMessage.vue'
@@ -11,7 +11,7 @@ localVue.use(new VueStyletron())
 
 test('client generates styles and classes', () => {
   // Create and mount the app.
-  const wrapper = shallowMount(HelloMessage, { localVue })
+  const wrapper = mount(HelloMessage, { localVue })
 
   // The head should contain a styles block.
   expect(document.head).toMatchSnapshot()

@@ -10,10 +10,18 @@ exports[`client generates styles and classes 1`] = `
 
 exports[`client generates styles and classes 2`] = `
 <div
-  class="ae af mr-5"
+  class="ae af my-5"
 >
-  
+  <div
+    class="container"
+  >
+    <div
+      class="ag"
+    >
+      
   Hello!
 
+    </div>
+  </div>
 </div>
 `;

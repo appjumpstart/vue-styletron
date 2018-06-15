@@ -5,11 +5,11 @@ exports[`server generates styles and classes 1`] = `
 <html>
   <head>
     <title>Test Template</title>
-  <style class=\\"_styletron_hydrate_\\">.ae{font-size:48px}.af{text-align:center}</style></head>
+  <style class=\\"_styletron_hydrate_\\">.ae{font-size:48px}.af{text-align:center}.ag{font-weight:bold}</style></head>
   <body>
-    <div data-server-rendered=\\"true\\" class=\\"ae af mr-5\\">
+    <div data-server-rendered=\\"true\\" class=\\"ae af my-5\\"><div class=\\"container\\"><div class=\\"ag\\">
   Hello!
-</div>
+</div></div></div>
   </body>
 </html>
 "
