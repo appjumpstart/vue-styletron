@@ -99,7 +99,7 @@ whitelist.
     height="50">
 </a>
 
-[npm-image]: https://badge.fury.io/js/@appjumpstart/vue-styletron.svg
+[npm-image]: https://img.shields.io/npm/v/@appjumpstart/vue-styletron.svg
 [npm-url]: https://npmjs.org/package/@appjumpstart/vue-styletron
 [spectrum-image]: https://withspectrum.github.io/badge/badge.svg
 [spectrum-url]: https://spectrum.chat/appjumpstart/general
