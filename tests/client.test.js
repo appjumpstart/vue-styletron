@@ -7,7 +7,7 @@ import HelloMessage from './fixtures/HelloMessage.vue'
 const localVue = createLocalVue()
 
 // Use the VueStyletron Client plugin.
-localVue.use(VueStyletron)
+localVue.use(new VueStyletron())
 
 test('client generates styles and classes', () => {
   // Create and mount the app.

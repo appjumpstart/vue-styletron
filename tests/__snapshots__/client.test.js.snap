@@ -12,6 +12,8 @@ exports[`client generates styles and classes 2`] = `
 <div
   class="ae af mr-5"
 >
+  
   Hello!
+
 </div>
 `;

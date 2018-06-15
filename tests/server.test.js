@@ -16,13 +16,14 @@ const template = readFileSync(join(__dirname, './fixtures/index.html'), 'utf-8')
 const renderer = createRenderer({ template })
 
 const styletron = new Server()
+const vueStyletron = new VueStyletron({ styletron })
 
-Vue.use(VueStyletron, { styletron })
+Vue.use(vueStyletron)
 
 test('server generates styles and classes', async () => {
   try {
     // Render the styles for the HelloMessage component.
-    VueStyletron.renderStyles(HelloMessage)
+    vueStyletron.renderComponentStyles(HelloMessage)
 
     // Create and mount the app with styletron as an option.
     const app = new Vue({ render: h => h(HelloMessage) })

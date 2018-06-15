@@ -7,7 +7,7 @@
 
 ## About
 
-This is a **super** small amount of code to make
+This is a very small amount of code to make
 [Styletron](https://github.com/rtsao/styletron) easier to use within
 [Vue.js](https://github.com/vuejs/vue) components.
 
@@ -25,7 +25,7 @@ npm install @appjumpstart/vue-styletron --save
 import VueStyletron from '@appjumpstart/vue-styletron'
 
 // Use VueStyletron as a Vue plugin.
-Vue.use(VueStyletron)
+Vue.use(new VueStyletron())
 ```
 
 **Server (optional, for SSR):**
@@ -34,16 +34,16 @@ Vue.use(VueStyletron)
 const { Server } = require('styletron-engine-atomic')
 const VueStyletron = require('@appjumpstart/vue-styletron')
 
-// Create a Styletron Server instance.
+// Create Styletron Server and VueStyletron instances.
 const styletron = new Server()
+const vueStyletron = new VueStyletron({ styletron })
 
-// Use VueStyletron as a Vue plugin and tell it to use the Styletron Server
-// instance created above.
-Vue.use(VueStyletron, { styletron })
+// Use VueStyletron as a Vue plugin.
+Vue.use(vueStyletron)
 
 // Once the application logic has determined the component to be rendered (by
 // VueRouter navigation or otherwise), render the component's styles.
-VueStyletron.renderStyles(MatchedComponent)
+vueStyletron.renderStyles(MatchedComponent)
 
 // After component styles have been rendered, generate the <style> HTML so that
 // it can be added to the page before sent to the client.
@@ -82,6 +82,13 @@ export default {
   </body>
 </html>
 ```
+
+## Server Side Rendering (SSR)
+
+**Note:** If you are using
+[webpack-node-externals](https://github.com/liady/webpack-node-externals) in the
+Webpack config make sure to add `'@appjumpstart/vue-styletron'` to the
+whitelist.
 
 &nbsp;
 
