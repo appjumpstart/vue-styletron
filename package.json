@@ -1,6 +1,6 @@
 {
   "name": "@appjumpstart/vue-styletron",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Use the Styletron CSS-in-JS library with Vue.js",
   "homepage": "https://github.com/optick/vuestyle",
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
