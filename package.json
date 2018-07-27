@@ -6,6 +6,7 @@
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "files": [
     "index.js",
+    "insertStyles.js",
     "LICENSE"
   ],
   "main": "index.js",
@@ -29,7 +30,7 @@
     "build": "webpack --config ./demo/webpack.config.js"
   },
   "dependencies": {
-    "styletron-engine-atomic": "^1.0.5"
+    "styletron-engine-atomic": "^1.0.8"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.16",

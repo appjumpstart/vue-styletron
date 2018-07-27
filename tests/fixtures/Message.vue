@@ -1,12 +1,5 @@
 <template>
-  <div :class="styles.message">
+  <div :class="renderStyle({ fontWeight: 'bold' })">
     Hello!
   </div>
 </template>
-
-<script>
-export default {
-  name: 'Message',
-  styles: { message: { fontWeight: 'bold' } }
-}
-</script>

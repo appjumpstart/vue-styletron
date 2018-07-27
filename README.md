@@ -33,6 +33,7 @@ Vue.use(new VueStyletron())
 ```js
 const { Server } = require('styletron-engine-atomic')
 const VueStyletron = require('@appjumpstart/vue-styletron')
+const insertStyles = require('@appjumpstart/vue-styletron/insertStyles')
 
 // Create Styletron Server and VueStyletron instances.
 const styletron = new Server()
@@ -41,14 +42,20 @@ const vueStyletron = new VueStyletron({ styletron })
 // Use VueStyletron as a Vue plugin.
 Vue.use(vueStyletron)
 
-// Once the application logic has determined the component to be rendered (by
-// VueRouter navigation or otherwise), render the component's styles.
-vueStyletron.renderStyles(MatchedComponent)
+// Use a Vue.js renderer to render your Vue.js app to a HTML string.
+// https://ssr.vuejs.org/guide/bundle-renderer.html
+let html = renderer.renderToString(context)
 
-// After component styles have been rendered, generate the <style> HTML so that
-// it can be added to the page before sent to the client.
-const styles = styletron.getStylesheetsHtml()
+// Insert the stylesheet that Styletron generated when the app was rendered.
+html = insertStyles(styletron, html)
+
+// This is just an example of sending an HTML response with Express.
+res.type('text/html').send(html)
 ```
+
+**NOTE:** You'll also need to insert a tag into your HTML template which
+defaults to `{styles}` but can be configured as the 3rd parameter to
+insertStyles.
 
 **Component:**
 
