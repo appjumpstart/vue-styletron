@@ -1,9 +1,9 @@
-import { Client } from 'styletron-engine-atomic'
+const { Client } = require('styletron-engine-atomic')
 
-export default class VueStyletron {
-  constructor (options = {}) {
+module.exports = class VueStyletron {
+  constructor (options = { hydrate: true }) {
     // Automatically hydrate the client.
-    if (typeof document !== 'undefined' && options.hydrate === undefined) {
+    if (options.hydrate && typeof document !== 'undefined') {
       const styles = document.getElementsByClassName('_styletron_hydrate_')
       if (Array.from(styles).some(style => style.innerHTML.length)) {
         options.hydrate = styles

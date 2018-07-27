@@ -6,7 +6,7 @@
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "files": [
     "index.js",
-    "insertStyles.js",
+    "server.js",
     "LICENSE"
   ],
   "main": "index.js",
@@ -30,6 +30,7 @@
     "build": "webpack --config ./demo/webpack.config.js"
   },
   "dependencies": {
+    "flatstr": "^1.0.8",
     "styletron-engine-atomic": "^1.0.8"
   },
   "devDependencies": {

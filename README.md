@@ -31,13 +31,10 @@ Vue.use(new VueStyletron())
 **Server (optional, for SSR):**
 
 ```js
-const { Server } = require('styletron-engine-atomic')
-const VueStyletron = require('@appjumpstart/vue-styletron')
-const insertStyles = require('@appjumpstart/vue-styletron/insertStyles')
+const VueStyletron = require('@appjumpstart/vue-styletron/server')
 
-// Create Styletron Server and VueStyletron instances.
-const styletron = new Server()
-const vueStyletron = new VueStyletron({ styletron })
+// Create the VueStyletron instance.
+const vueStyletron = new VueStyletron()
 
 // Use VueStyletron as a Vue plugin.
 Vue.use(vueStyletron)
@@ -47,7 +44,7 @@ Vue.use(vueStyletron)
 let html = renderer.renderToString(context)
 
 // Insert the stylesheet that Styletron generated when the app was rendered.
-html = insertStyles(styletron, html)
+html = vueStyletron.insertStyles(html)
 
 // This is just an example of sending an HTML response with Express.
 res.type('text/html').send(html)
