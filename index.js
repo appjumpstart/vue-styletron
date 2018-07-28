@@ -20,18 +20,7 @@ module.exports = class VueStyletron {
     Vue.mixin({
       // Make the renderStyle and renderStyles methods available in components
       // in case styles need to be generated dynamically.
-      methods: { renderStyle: this.styletron.renderStyle.bind(this.styletron) },
-      // Add the generated styles to the component's data, generating them if
-      // they're not found in the components map.
-      data () {
-        const data = { styles: {} }
-        if (this.$options.styles) {
-          for (const key of Object.keys(this.$options.styles)) {
-            data.styles[key] = this.renderStyle(this.$options.styles[key])
-          }
-        }
-        return data
-      }
+      methods: { style: this.styletron.renderStyle.bind(this.styletron) }
     })
   }
 }
