@@ -77,6 +77,31 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "babel": {
+    "presets": [
+      [
+        "env"
+      ]
+    ],
+    "plugins": [
+      "transform-runtime",
+      "babel-plugin-syntax-object-rest-spread"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
   "jest": {
     "testURL": "http://localhost:3030",
     "transform": {

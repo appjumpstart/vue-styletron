@@ -1,5 +1,5 @@
 <template>
-  <div :class="`${styles.hello} my-5`">
+  <div :class="`${style({ fontSize: '48px', textAlign: 'center' })} my-5`">
     <container />
   </div>
 </template>
@@ -9,7 +9,6 @@ import Container from './Container'
 
 export default {
   name: 'HelloMessage',
-  styles: { hello: { fontSize: '48px', textAlign: 'center' } },
   components: { Container }
 }
 </script>

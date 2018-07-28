@@ -1,5 +1,5 @@
 <template>
-  <div :class="renderStyle({ fontWeight: 'bold' })">
+  <div :class="style({ fontWeight: 'bold' })">
     Hello!
   </div>
 </template>
