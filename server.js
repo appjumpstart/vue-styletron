@@ -14,11 +14,8 @@ module.exports = class VueStyletronServer extends VueStyletron {
   insertStyles (html, url, tag = '{styles}') {
     const { styletron } = this
     if (url) {
-      if (pages[url]) {
-        return pages[url]
-      }
-      pages[url] = flatstr(html.replace(tag, styletron.getStylesheetsHtml()))
-      return pages[url]
+      pages[url] = pages[url] || styletron.getStylesheetsHtml()
+      return flatstr(html.replace(tag, pages[url]))
     }
     return flatstr(html.replace(tag, styletron.getStylesheetsHtml()))
   }
